@@ -11,7 +11,7 @@ pipeline {
 			steps {
 				echo " Before build for branch: ${params.BRANCH_NM}"
         checkout scmGit(branches: [[name: "*/${params.BRANCH_NM}"]], extensions: [], userRemoteConfigs: [[credentialsId: 'git-cred', name: 'origin', url: 'https://github.com/kotagiriramachandra/easy-contacts.git']])
-				bat 'npm install'
+				bat 'npm install -g win-node-env'
 				bat 'npm run build'        
         echo " After build for branch: ${params.BRANCH_NM}"
 			}
